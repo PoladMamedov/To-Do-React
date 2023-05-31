@@ -1,0 +1,203 @@
+.container {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 550px) {
+  .header-container {
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .header-container h1 {
+    font-size: 25px;
+  }
+  .header-container button {
+    margin: 0;
+  }
+  .header-container div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.button {
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(255, 255, 255, 0.49);
+  transition: all 0.1s ease-in-out;
+}
+.button:hover {
+  transform: scale(105%);
+  background: rgba(255, 255, 255, 0.41);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.7px);
+  -webkit-backdrop-filter: blur(13.7px);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+}
+.log-in-btn {
+  margin-left: 10px;
+}
+.todo-add-container {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+.todo-add-form-error {
+  position: absolute;
+  z-index: 1;
+  font-size: 13px;
+  right: 90px;
+  top: 12px;
+  color: rgb(255, 255, 255);
+}
+@media screen and (max-width: 550px) {
+  .todo-add-form-error {
+    display: inline-block;
+    width: 120px;
+    font-size: 12px;
+    top: 5px;
+    right: 85px;
+  }
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(255, 255, 255, 0.49);
+  transition: all 0.1s ease-in-out;
+}
+.input:focus {
+  background: rgba(255, 255, 255, 0.41);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.7px);
+  -webkit-backdrop-filter: blur(13.7px);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+}
+.todo-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.todo-item {
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(39, 182, 255, 0.19);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.2px);
+  -webkit-backdrop-filter: blur(7.2px);
+  border: 2px solid rgba(39, 182, 255, 0.16);
+}
+.delete-button {
+  margin-left: auto;
+}
+.checkbox-container {
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-top: 3px;
+}
+.checkbox-container input {
+  display: none;
+}
+.checkbox-container svg {
+  overflow: visible;
+}
+.path {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+  stroke-dasharray: 241 9999999;
+  stroke-dashoffset: 0;
+}
+.checkbox-container input:checked ~ svg .path {
+  stroke-dasharray: 70.5096664428711 9999999;
+  stroke-dashoffset: -262.2723388671875;
+}
+.main-footer {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+}
+
+.log-in-form {
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 180px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.welcome {
+  text-align: center;
+  font-weight: 400;
+}
+.log-in-form-btn {
+  width: 100%;
+}
+.set-name-form-error {
+  font-size: 12px;
+  position: absolute;
+  top: 276px;
+  right: 0;
+}
+@media screen and (min-width: 600px) {
+  .log-in-form {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .welcome {
+    font-size: 20px;
+  }
+  .set-name-form-error {
+    top: 258px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .log-in-form {
+    width: 50%;
+  }
+}
