@@ -7,7 +7,7 @@ function ToDoList() {
     <section>
       <div className="container">
         <ul className="todo-list">
-          {toDoItems.map((item, index) => {
+          {toDoItems?.map((item, index) => {
             return <ToDoItem key={index} item={item} />;
           })}
         </ul>
