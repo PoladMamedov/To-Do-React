@@ -10,7 +10,7 @@ function SetNameForm() {
       name: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("You neeed to enter your name to continue!"),
+      name: Yup.string().required("You need to enter your name to continue!"),
     }),
     onSubmit: (values) => {
       dispatch(setName(values.name));
@@ -30,7 +30,7 @@ function SetNameForm() {
       <input
         className="input"
         type="text"
-        placeholder="Enter your name"
+        placeholder="Enter your name..."
         name="name"
         value={formik.values.name}
         onBlur={formik.handleBlur}
