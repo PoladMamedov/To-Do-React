@@ -8,8 +8,10 @@ function App() {
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.name);
   useEffect(() => {
-    const name = localStorage.getItem("name");
-    dispatch(setName(name));
+    if (localStorage.getItem("name")) {
+      const name = localStorage.getItem("name");
+      dispatch(setName(name));
+    }
   });
   return (
     <>
