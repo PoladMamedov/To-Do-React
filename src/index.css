@@ -161,46 +161,132 @@
   position: absolute;
   bottom: 0;
 }
-
-.log-in-form {
-  position: relative;
+.forms-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 180px;
+  padding-top: 110px;
+}
+.form-change-btns {
   display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.form-change-btn {
+  height: 40px;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  color: lightslategray;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.form-change-btn:hover {
+  color: #fff;
+}
+.active-form-btn {
+  color: #fff;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+.log-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: start;
   flex-direction: column;
   gap: 15px;
+  transition: all 0.2s ease-in-out;
 }
-.welcome {
-  text-align: center;
-  font-weight: 400;
+@media screen and (min-width: 600px) {
+  .log-in-form,
+  .form-change-btns {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .log-in-form,
+  .form-change-btns {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .log-in-form,
+  .form-change-btns {
+    width: 100%;
+  }
 }
 .log-in-form-btn {
   width: 100%;
 }
-.set-name-form-error {
-  font-size: 12px;
+.welcome {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+}
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+.form-input-error {
   position: absolute;
-  top: 276px;
+  font-size: 12px;
+  top: 15px;
   right: 0;
 }
-@media screen and (min-width: 600px) {
-  .log-in-form {
-    width: 70%;
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  background-color: #000000;
+  opacity: 0.4;
+}
+.loader {
+  position: absolute;
+  z-index: 6;
+  width: 100px;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 15px solid rgba(255, 255, 255, 0.1);
+  border-top: 15px solid rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  animation: circle-loader 1s infinite;
+}
+@keyframes circle-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
-@media screen and (max-width: 600px) {
-  .welcome {
-    font-size: 20px;
-  }
-  .set-name-form-error {
-    top: 258px;
-  }
+.success {
+  text-align: center;
+  color: #fff;
 }
-@media screen and (min-width: 800px) {
-  .log-in-form {
-    width: 50%;
-  }
+.error {
+  text-align: center;
+  color: red;
 }

@@ -1,21 +1,23 @@
 import { useEffect } from "react";
-import SetNameForm from "./components/setNameForm/setNameForm";
 import MainPage from "./pages/MainPage";
 import { useDispatch, useSelector } from "react-redux";
-import { setName } from "./redux/slices/userNameSlice";
+import { setUserNameToken } from "./redux/slices/userAuthSlice";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const dispatch = useDispatch();
-  const userName = useSelector((state) => state.name);
+  const { token } = useSelector((state) => state.user);
   useEffect(() => {
-    if (localStorage.getItem("name")) {
-      const name = localStorage.getItem("name");
-      dispatch(setName(name));
+    const userName = JSON.parse(localStorage.getItem("userName"));
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+    if (token) {
+      dispatch(setUserNameToken({ userName, token }));
     }
-  });
+  }, [dispatch]);
   return (
     <>
-      {userName ? <MainPage /> : <SetNameForm />}
+      {token ? <MainPage /> : <LoginPage />}
       <footer className="main-footer">Designed & created by Polad Mamedov 2023</footer>
     </>
   );
