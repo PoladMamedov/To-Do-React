@@ -1,17 +1,20 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from "react-redux";
-import { deleteToDo, markAsDone } from "../../redux/slices/toDoListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteToDo, deleteToDoFromState, doneToggle, markAsDone } from "../../redux/slices/toDoListSlice";
 
 function ToDoItem({ item }) {
   const dispatch = useDispatch();
-  const { date, id, done, toDo } = item;
+  const { token } = useSelector((state) => state.user);
+
+  const { date, _id, done, toDo } = item;
   return (
     <li className="todo-item">
       <label className="checkbox-container">
         <input
           type="checkbox"
           onChange={() => {
-            dispatch(markAsDone(id));
+            dispatch(markAsDone(_id));
+            dispatch(doneToggle({ _id, token }));
           }}
           checked={done ? true : false}
         />
@@ -29,7 +32,8 @@ function ToDoItem({ item }) {
       </p>
       <button
         onClick={() => {
-          dispatch(deleteToDo(id));
+          dispatch(deleteToDoFromState(_id));
+          dispatch(deleteToDo({ _id, token }));
         }}
         className="button delete-button"
       >

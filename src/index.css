@@ -50,7 +50,6 @@
   transition: all 0.1s ease-in-out;
 }
 .button:hover {
-  transform: scale(105%);
   background: rgba(255, 255, 255, 0.41);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(13.7px);
@@ -192,7 +191,6 @@
 }
 .active-form-btn {
   color: #fff;
-  border-top: 1px solid;
   border-bottom: 1px solid;
 }
 .log-in-form {

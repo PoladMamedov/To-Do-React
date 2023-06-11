@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { removeAllToDos } from "../../redux/slices/toDoListSlice";
+import { deleteAll, removeAllToDos } from "../../redux/slices/toDoListSlice";
 import { logOut } from "../../redux/slices/userAuthSlice";
 
 function Header() {
   const dispatch = useDispatch();
-  const { name } = useSelector((state) => state.user);
+  const { name, email, token } = useSelector((state) => state.user);
   return (
     <header className="header">
       <div className="container header-container">
@@ -16,6 +16,7 @@ function Header() {
           <button
             onClick={() => {
               dispatch(removeAllToDos());
+              dispatch(deleteAll({email, token}));
             }}
             className="button"
           >
@@ -24,8 +25,7 @@ function Header() {
           <button
             onClick={() => {
               dispatch(logOut());
-              localStorage.removeItem("userName");
-              localStorage.removeItem("token");
+              localStorage.removeItem("userInfo");
             }}
             className="button log-in-btn"
           >

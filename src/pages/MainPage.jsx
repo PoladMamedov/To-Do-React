@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import Header from "../components/Header/Header";
 import ToDoAdd from "../components/ToDoAdd/ToDoAdd";
 import ToDoList from "../components/ToDoList/ToDoList";
-import { useDispatch } from "react-redux";
-import { setToDos } from "../redux/slices/toDoListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getToDos } from "../redux/slices/toDoListSlice";
 
 function MainPage() {
   const dispatch = useDispatch();
+  const { email, token } = useSelector((state) => state.user);
   useEffect(() => {
-    dispatch(setToDos(JSON.parse(localStorage.getItem("todos"))));
+    dispatch(getToDos({ email, token }));
   });
   return (
     <>

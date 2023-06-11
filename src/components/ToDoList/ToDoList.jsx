@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
 import ToDoItem from "../ToDoItem/ToDoItem";
+import Loader from "../Loader/Loader";
 
 function ToDoList() {
   const toDoItems = useSelector((state) => state.toDoList);
-  return (
+  return toDoItems.loading ? (
+    <Loader />
+  ) : (
     <section>
       <div className="container">
         <ul className="todo-list">

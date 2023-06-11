@@ -10,8 +10,7 @@ export const logInUser = createAsyncThunk("user/logInUser", async (userInfo) => 
   }).then((res) => res.json());
 
   if (response.authorized) {
-    localStorage.setItem("userName", JSON.stringify(response.name));
-    localStorage.setItem("token", JSON.stringify(response.token));
+    localStorage.setItem("userInfo", JSON.stringify(response));
   }
 
   return response;
@@ -34,7 +33,8 @@ const userSlice = createSlice({
     setUserNameToken: (state, action) => {
       return {
         authorized: true,
-        name: action.payload.userName,
+        name: action.payload.name,
+        email: action.payload.email,
         token: action.payload.token,
       };
     },

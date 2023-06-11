@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToDo } from "../../redux/slices/toDoListSlice";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import dateFormat from "dateformat";
 
 function ToDoAdd() {
   const dispatch = useDispatch();
+  const { email, token } = useSelector((state) => state.user);
 
   const formik = useFormik({
     initialValues: {
@@ -14,9 +16,8 @@ function ToDoAdd() {
       toDo: Yup.string().required("This field is required when adding to-do"),
     }),
     onSubmit: (values) => {
-      const date = new Date();
-      const addingDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
-      dispatch(addToDo({id: Date.now(), toDo: values.toDo, date: addingDate, done: false }));
+      const addingDate = dateFormat(new Date());
+      dispatch(addToDo({ toDoInfo: { email: email, toDo: values.toDo, date: addingDate, done: false }, token: token }));
     },
   });
 

@@ -8,11 +8,10 @@ function App() {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
   useEffect(() => {
-    const userName = JSON.parse(localStorage.getItem("userName"));
-    const token = JSON.parse(localStorage.getItem("token"));
-    console.log(token);
-    if (token) {
-      dispatch(setUserNameToken({ userName, token }));
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    if (userInfo) {
+      const { name, email, token } = userInfo;
+      dispatch(setUserNameToken({ name, email, token }));
     }
   }, [dispatch]);
   return (
