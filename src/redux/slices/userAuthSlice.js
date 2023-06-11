@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const MAIN_URL = "https://to-do-list-backend-liard.vercel.app/";
+
 export const logInUser = createAsyncThunk("user/logInUser", async (userInfo) => {
-  const response = await fetch("http://localhost:3001/login", {
+  const response = await fetch(`${MAIN_URL}login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -16,7 +18,7 @@ export const logInUser = createAsyncThunk("user/logInUser", async (userInfo) => 
   return response;
 });
 export const registerUser = createAsyncThunk("user/registerUser", async (userInfo) => {
-  const response = await fetch("http://localhost:3001/register", {
+  const response = await fetch(`${MAIN_URL}register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

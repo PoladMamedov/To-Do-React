@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+const MAIN_URL = "https://to-do-list-backend-liard.vercel.app/";
+
 export const getToDos = createAsyncThunk("ToDoList/getToDos", async ({ email, token }) => {
-  const response = await fetch("http://localhost:3001/todos", {
+  const response = await fetch(`${MAIN_URL}todos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,7 +15,7 @@ export const getToDos = createAsyncThunk("ToDoList/getToDos", async ({ email, to
 });
 
 export const addToDo = createAsyncThunk("ToDoList/addToDo", async ({ toDoInfo, token }) => {
-  const response = await fetch("http://localhost:3001/todo", {
+  const response = await fetch(`${MAIN_URL}todo`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +27,7 @@ export const addToDo = createAsyncThunk("ToDoList/addToDo", async ({ toDoInfo, t
 });
 
 export const deleteToDo = createAsyncThunk("ToDoList/addToDo", async ({ _id, token }) => {
-  const response = await fetch("http://localhost:3001/todo", {
+  const response = await fetch(`${MAIN_URL}todo`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -37,7 +39,7 @@ export const deleteToDo = createAsyncThunk("ToDoList/addToDo", async ({ _id, tok
 });
 
 export const doneToggle = createAsyncThunk("ToDoList/doneToggle", async ({ _id, token }) => {
-  const response = await fetch("http://localhost:3001/todo", {
+  const response = await fetch(`${MAIN_URL}todo`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -49,7 +51,7 @@ export const doneToggle = createAsyncThunk("ToDoList/doneToggle", async ({ _id, 
 });
 
 export const deleteAll = createAsyncThunk("ToDoList/deleteAll", async ({ email, token }) => {
-  const response = await fetch("http://localhost:3001/todos", {
+  const response = await fetch(`${MAIN_URL}todos`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
