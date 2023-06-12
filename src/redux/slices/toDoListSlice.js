@@ -69,9 +69,9 @@ export const toDoListSlice = createSlice({
     setToDos: (state, action) => {
       return action.payload;
     },
-    // addToDoToState: (state, action) => {
-    //   state.push(action.payload);
-    // },
+    addToDoToState: (state, action) => {
+      state.push(action.payload);
+    },
     deleteToDoFromState: (state, action) => {
       const newState = state.filter((item) => item._id !== action.payload);
       return newState;
@@ -91,12 +91,9 @@ export const toDoListSlice = createSlice({
     builder.addCase(getToDos.fulfilled, (state, action) => {
       return action.payload;
     });
-    builder.addCase(addToDo.fulfilled, (state, action) => {
-      state.push(action.payload);
-    });
   },
 });
 
-export const { setToDos, deleteToDoFromState, markAsDone, removeAllToDos } = toDoListSlice.actions;
+export const { setToDos, addToDoToState, deleteToDoFromState, markAsDone, removeAllToDos } = toDoListSlice.actions;
 
 export default toDoListSlice.reducer;

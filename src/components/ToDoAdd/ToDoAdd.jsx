@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToDo } from "../../redux/slices/toDoListSlice";
+import { addToDo, addToDoToState } from "../../redux/slices/toDoListSlice";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import dateFormat from "dateformat";
@@ -18,6 +18,7 @@ function ToDoAdd() {
     onSubmit: (values, { resetForm }) => {
       const addingDate = dateFormat(new Date());
       const toDoInfo = { email: email, toDo: values.toDo, date: addingDate, done: false };
+      dispatch(addToDoToState(toDoInfo));
       dispatch(addToDo({ toDoInfo, token: token }));
       resetForm();
     },
