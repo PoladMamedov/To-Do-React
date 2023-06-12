@@ -15,9 +15,11 @@ function ToDoAdd() {
     validationSchema: Yup.object({
       toDo: Yup.string().required("This field is required when adding to-do"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       const addingDate = dateFormat(new Date());
-      dispatch(addToDo({ toDoInfo: { email: email, toDo: values.toDo, date: addingDate, done: false }, token: token }));
+      const toDoInfo = { email: email, toDo: values.toDo, date: addingDate, done: false };
+      dispatch(addToDo({ toDoInfo, token: token }));
+      resetForm();
     },
   });
 

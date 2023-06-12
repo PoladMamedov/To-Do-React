@@ -41,6 +41,7 @@ const userSlice = createSlice({
       };
     },
     logOut: () => {
+      localStorage.removeItem("userInfo");
       return {};
     },
   },

@@ -26,7 +26,7 @@ export const addToDo = createAsyncThunk("ToDoList/addToDo", async ({ toDoInfo, t
   return response;
 });
 
-export const deleteToDo = createAsyncThunk("ToDoList/addToDo", async ({ _id, token }) => {
+export const deleteToDo = createAsyncThunk("ToDoList/deleteToDo", async ({ _id, token }) => {
   const response = await fetch(`${MAIN_URL}todo`, {
     method: "DELETE",
     headers: {
@@ -69,8 +69,8 @@ export const toDoListSlice = createSlice({
     setToDos: (state, action) => {
       return action.payload;
     },
-    // addToDo: (state, action) => {
-    // state.push(action.payload);
+    // addToDoToState: (state, action) => {
+    //   state.push(action.payload);
     // },
     deleteToDoFromState: (state, action) => {
       const newState = state.filter((item) => item._id !== action.payload);

@@ -25,7 +25,6 @@ function Header() {
           <button
             onClick={() => {
               dispatch(logOut());
-              localStorage.removeItem("userInfo");
             }}
             className="button log-in-btn"
           >
